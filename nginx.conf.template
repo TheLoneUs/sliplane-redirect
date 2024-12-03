@@ -4,10 +4,6 @@ server {
     server_name _;
 
     location / {
-        set $scheme http;
-        if ($https_redirect = "true") {
-            set $scheme https;
-        }
-        return 301 $scheme://$TARGET_DOMAIN$request_uri;
+        return 301 https://$TARGET_DOMAIN$request_uri;
     }
 }
